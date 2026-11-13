@@ -1,10 +1,16 @@
 package com.hr_nexus.Repository;
 
-import com.hr_nexus.Entity.UserAuth;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.hr_nexus.Entity.UserAuth;
 
 @Repository
 public interface UserAuthRepository extends JpaRepository<UserAuth, Long> {
 
+    Optional<UserAuth> findByUserEmail(String userEmail);
+
+    Optional<UserAuth> findByResetToken(String token);
 }

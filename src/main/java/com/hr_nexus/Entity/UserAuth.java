@@ -1,6 +1,9 @@
 package com.hr_nexus.Entity;
 
+import java.util.Date;
+
 import com.hr_nexus.ENUM.Role;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +12,8 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
 public class UserAuth {
 
@@ -29,4 +34,8 @@ public class UserAuth {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    private String resetToken;
+
+    private Date resetTokenExpiry;
 }
